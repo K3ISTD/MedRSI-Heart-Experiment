@@ -1,0 +1,23 @@
+{
+  "source": "UCI Machine Learning Repository, Heart Disease, dataset id 45; Cleveland processed subset",
+  "doi": "10.24432/C52P4X",
+  "license": "CC BY 4.0",
+  "source_rows_returned": 303,
+  "complete_rows_after_dropping_missing": 297,
+  "prepared_cases": 120,
+  "requested_limit": 120,
+  "seed": 42,
+  "split_counts": {
+    "train": 72,
+    "trial": 18,
+    "discovery": 18,
+    "test": 12
+  },
+  "label_counts": {
+    "no_heart_disease": 65,
+    "heart_disease": 55
+  },
+  "target_mapping": "original num=0 -> no_heart_disease; num=1,2,3,4 -> heart_disease",
+  "missing_data_handling": "Rows with any missing feature or target were removed.",
+  "warning": "Historical benchmark data; not for clinical diagnosis or patient care."
+}

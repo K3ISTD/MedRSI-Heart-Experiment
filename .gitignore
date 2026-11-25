@@ -1,3 +1,28 @@
 __pycache__/
 *.egg-info/
 runs/
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and build files
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Experiment outputs
+runs/
+*.log
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example

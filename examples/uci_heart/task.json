@@ -1,0 +1,29 @@
+{
+  "name": "uci_cleveland_heart_disease",
+  "description": "Academic benchmark: classify the presence or absence of angiographic heart disease from 13 clinical attributes in the UCI Cleveland Heart Disease dataset. This is retrospective historical data and is not a clinical diagnostic system.",
+  "labels": [
+    "no_heart_disease",
+    "heart_disease"
+  ],
+  "positive_label": "heart_disease",
+  "inputs": {
+    "age": "Age in years.",
+    "sex": "Sex code as recorded in the UCI dataset (categorical code).",
+    "cp": "Chest-pain type code as recorded in the UCI dataset (categorical code).",
+    "trestbps": "Resting blood pressure in mm Hg.",
+    "chol": "Serum cholesterol in mg/dl.",
+    "fbs": "Fasting blood sugar indicator as recorded in the UCI dataset (categorical code).",
+    "restecg": "Resting electrocardiographic result code.",
+    "thalach": "Maximum heart rate achieved.",
+    "exang": "Exercise-induced angina indicator (categorical code).",
+    "oldpeak": "ST depression induced by exercise relative to rest.",
+    "slope": "Slope of the peak exercise ST segment (categorical code).",
+    "ca": "Number of major vessels colored by fluoroscopy (0–3; may be missing in source).",
+    "thal": "Thallium stress-test result code (categorical code; may be missing in source)."
+  },
+  "consequence": {
+    "heart_disease->no_heart_disease": 2,
+    "no_heart_disease->heart_disease": 1
+  },
+  "rubric": "ACADEMIC PROXY ONLY: for this software experiment, a false negative is assigned weight 2 and a false positive weight 1 to illustrate asymmetric error costs. These weights are not clinically validated severity estimates and must not be used for patient care or medical decisions."
+}

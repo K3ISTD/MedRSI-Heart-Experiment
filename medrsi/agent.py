@@ -69,6 +69,32 @@ class MedAgent:
             {"role": "user", "content": text, "images": images},
         ]
         calls, obj, reply = [], {}, ""
+
+        # Force the Logistic Regression tool when it is registered.
+        required_tool = "heart_disease_predictor"
+        if required_tool in self.tools:
+            try:
+                output = to_jsonable(runner.call(required_tool))
+            except Exception as e:
+                output = {"error": f"{type(e).__name__}: {e}"}
+
+            calls.append({
+                "tool": self.tools[required_tool].id,
+                "output": output,
+            })
+
+            tool_result = json.dumps({required_tool: output}, indent=1)
+            messages.append({
+                "role": "user",
+                "content": (
+                    "MANDATORY TOOL RESULT: The required tool has already "
+                    "been executed on this patient's data. Use its output "
+                    "as evidence when making your diagnosis. Do not claim "
+                    "that the tool was not run.\n"
+                    + tool_result
+                ),
+            })
+
         for step in range(self.max_steps):
             reply = self.llm.chat(messages, temperature=self.temperature, tag="agent")
             obj = parse_json(reply) or {}
